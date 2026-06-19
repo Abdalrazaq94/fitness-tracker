@@ -1,8 +1,8 @@
-import { useStore } from '../store'
+import { useWorkouts } from '../hooks/useWorkouts'
 import { Dumbbell } from 'lucide-react'
 
 function WorkoutList() {
-  const { workouts } = useStore()
+  const { workouts, loading } = useWorkouts()
 
   const mockWorkouts = [
     { id: '1', name: 'Morning Run', duration: 32, calories: 280, type: 'run' },
@@ -11,12 +11,16 @@ function WorkoutList() {
 
   const displayWorkouts = workouts.length > 0 ? workouts : mockWorkouts
 
+  if (loading) {
+    return <p className="text-xs text-gray-500 text-center py-4">Loading workouts...</p>
+  }
+
   return (
-    <div>
+    <div className="mb-6">
       <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">recent workouts</p>
       <div className="flex flex-col gap-3">
         {displayWorkouts.map((workout) => (
-          <div key={workout.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-4 flex items-center gap-4">
+          <div key={workout.id} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-4 flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-green-900 flex items-center justify-center text-green-400">
               <Dumbbell size={18} />
             </div>

@@ -2,6 +2,15 @@ import { useStore } from '../store'
 import { Sun, Moon } from 'lucide-react'
 import MetricCards from './MetricCards'
 import WorkoutList from './WorkoutList'
+import WeeklyChart from './WeeklyChart'
+import WorkoutTimer from './WorkoutTimer'
+import StreakCounter from './StreakCounter'
+import MoodTracker from './MoodTracker'
+import BodyHeatmap from './BodyHeatmap'
+import AICoach from './AICoach'
+import SleepPlan from './SleepPlan'
+import HeartRate from './HeartRate'
+import AddWorkout from './AddWorkout'
 
 function Dashboard() {
   const { theme, toggleTheme } = useStore()
@@ -23,6 +32,15 @@ function Dashboard() {
 
       <MetricCards />
       <WorkoutList />
+      <WeeklyChart />
+      <WorkoutTimer />
+      <StreakCounter />
+      <MoodTracker />
+      <BodyHeatmap />
+      <AICoach />
+      <SleepPlan />
+      <HeartRate />
+      <AddWorkout />
     </div>
   )
 }
