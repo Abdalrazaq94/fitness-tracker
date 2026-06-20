@@ -1,13 +1,15 @@
+import { useMetrics } from '../hooks/useMetrics'
 import { useStore } from '../store'
 import { Footprints, Droplets, Moon, Flame } from 'lucide-react'
 
 function MetricCards() {
-  const { metrics, goal } = useStore()
+  const { metrics } = useMetrics()
+  const { goal } = useStore()
 
   const cards = [
     {
       label: 'steps',
-      value: metrics?.steps ?? 7612,
+      value: metrics?.steps ?? 0,
       unit: '',
       goal: goal.steps,
       icon: <Footprints size={18} />,
@@ -15,7 +17,7 @@ function MetricCards() {
     },
     {
       label: 'water',
-      value: metrics?.water ?? 1.4,
+      value: metrics?.water ?? 0,
       unit: 'L',
       goal: goal.water,
       icon: <Droplets size={18} />,
@@ -23,11 +25,19 @@ function MetricCards() {
     },
     {
       label: 'sleep',
-      value: metrics?.sleep ?? 7.2,
+      value: metrics?.sleep ?? 0,
       unit: 'hrs',
       goal: goal.sleep,
       icon: <Moon size={18} />,
       color: 'text-purple-400'
+    },
+    {
+      label: 'calories',
+      value: metrics?.calories ?? 0,
+      unit: 'kcal',
+      goal: goal.calories,
+      icon: <Flame size={18} />,
+      color: 'text-pink-400'
     }
   ]
 
