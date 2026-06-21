@@ -13,6 +13,8 @@ export interface Metrics {
   water: number;
   sleep: number;
   mood: string;
+  calories: number;
+  heartRate: number;
   date?: string;
 }
 
