@@ -79,7 +79,7 @@ function SleepPlan() {
             <Tooltip
               contentStyle={{ background: '#111', border: '1px solid #222', borderRadius: 8, fontSize: 12 }}
               labelStyle={{ color: '#fff' }}
-              formatter={(value: number) => [`${value} hrs`, 'sleep']}
+              formatter={(value) => [`${value} hrs`, 'sleep']}
             />
             <ReferenceLine y={8} stroke="#4ade80" strokeDasharray="4 4" />
             <Line
